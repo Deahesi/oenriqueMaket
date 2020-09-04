@@ -1,0 +1,118 @@
+
+let TopScr = '0px';
+
+$(document).ready(function () {
+    function toElement(event, TopM = '0px') {
+        event.preventDefault();
+        console.log(TopM);
+        $('html, body').animate({ scrollTop: TopM }, 1000);
+    }
+
+
+    const slide = (e, innerBoxes) => {
+        console.log(e.target.classList.contains('third'));
+        for (element of innerBoxes) {
+            element.classList.remove('active-slider');
+        }
+        e.target.classList.add('active-slider');
+        if (e.target.classList.contains('first')) {
+            for (elem of $('.review')) {
+                elem.classList.remove('active-slider-review');
+            }
+            $('.review_1').addClass('active-slider-review');
+        } else if (e.target.classList.contains('second')) {
+            for (elem of $('.review')) {
+                elem.classList.remove('active-slider-review');
+            }
+            $('.review_2').addClass('active-slider-review');
+        } else if (e.target.classList.contains('third')) {
+            for (elem of $('.review')) {
+                elem.classList.remove('active-slider-review');
+            }
+            $('.review_3').addClass('active-slider-review');
+        }
+    }
+
+    $('.slider__rect').on('click', function (e) {
+        slide(e, document.querySelectorAll('.slider__rect'));
+    })
+
+    $('#home').on('click', function (e) {
+        toElement(e);
+    });
+    $('#about').on('click', function (e) {
+        TopScr = $('.section-first').css('height') + 'px';
+        toElement(e, TopScr);
+    });
+    $('#service').on('click', function (e) {
+        TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))) + 'px';
+        toElement(e, TopScr);
+    });
+    $('#portfolio').on('click', function (e) {
+        TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))
+            + parseInt($('.service__box').css('height'))) + parseInt($('.section-fourth').css('height')) + 'px';
+        toElement(e, TopScr);
+    });
+
+
+});
+
+$(window).scroll(function () {
+    var top = $(document).scrollTop();
+    if (top < 100) {
+        $(".header").css({ top: '0', position: 'relative', backgroundColor: '', paddingTop: '', alignItems: '', border: '', borderRadius: '', width: '' });
+        $('.logo').css({ flexDirection: 'column', marginLeft: '', });
+    }
+    else {
+        $(".header").css({
+            top: '10px',
+            position: 'fixed',
+            maxWidth: '1600px',
+            width: '60%',
+            backgroundColor: '#dedede',
+            paddingTop: '0',
+            alignItems: 'center',
+            border: '1px solid #fafafa',
+            borderRadius: '10px',
+        });
+
+        $('.logo').css({
+            flexDirection: 'row',
+            marginLeft: '30px',
+        });
+
+        $('.header__nav').css({
+            marginRight: '30px',
+        });
+    }
+
+
+    if (top < parseInt($('.section-first').css('height'))) {
+        $('#about').removeClass('active');
+        $('#service').removeClass('active');
+        $('#portfolio').removeClass('active');
+        $('#home').addClass('active');
+    } else if (top >= parseInt($('.section-first').css('height'))) {
+        $('#home').removeClass('active');
+        $('#portfolio').removeClass('active');
+        $('#service').removeClass('active');
+        $('#about').addClass('active');
+    }
+    if (top >= (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height')))) {
+        $('#about').removeClass('active');
+        $('#home').removeClass('active');
+        $('#portfolio').removeClass('active');
+        $('#service').addClass('active');
+    }
+    if (top >= (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))
+        + parseInt($('.service__box').css('height'))) + parseInt($('.section-fourth').css('height'))) {
+        $('#about').removeClass('active');
+        $('#home').removeClass('active');
+        $('#service').removeClass('active');
+        $('#portfolio').addClass('active');
+    }
+
+
+
+});
+
