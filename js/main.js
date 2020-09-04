@@ -53,6 +53,10 @@ $(document).ready(function () {
             + parseInt($('.service__box').css('height'))) + parseInt($('.section-fourth').css('height')) + 'px';
         toElement(e, TopScr);
     });
+    $('#contact').on('click', function (e) {
+        TopScr = (parseInt($('body').css('height'))) - (parseInt($('.section-seventh').css('height')) + parseInt($('.footer').css('height'))) + 'px';
+        toElement(e, TopScr);
+    });
 
 
 });
@@ -91,17 +95,20 @@ $(window).scroll(function () {
         $('#about').removeClass('active');
         $('#service').removeClass('active');
         $('#portfolio').removeClass('active');
+        $('#contact').removeClass('active');
         $('#home').addClass('active');
     } else if (top >= parseInt($('.section-first').css('height'))) {
         $('#home').removeClass('active');
         $('#portfolio').removeClass('active');
         $('#service').removeClass('active');
+        $('#contact').removeClass('active');
         $('#about').addClass('active');
     }
     if (top >= (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height')))) {
         $('#about').removeClass('active');
         $('#home').removeClass('active');
         $('#portfolio').removeClass('active');
+        $('#contact').removeClass('active');
         $('#service').addClass('active');
     }
     if (top >= (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))
@@ -109,7 +116,15 @@ $(window).scroll(function () {
         $('#about').removeClass('active');
         $('#home').removeClass('active');
         $('#service').removeClass('active');
+        $('#contact').removeClass('active');
         $('#portfolio').addClass('active');
+    }
+    if (top >= (parseInt($('body').css('height'))) - (parseInt($('.section-seventh').css('height')) + parseInt($('.footer').css('height')))) {
+        $('#about').removeClass('active');
+        $('#home').removeClass('active');
+        $('#service').removeClass('active');
+        $('#portfolio').removeClass('active');
+        $('#contact').addClass('active');
     }
 
 
