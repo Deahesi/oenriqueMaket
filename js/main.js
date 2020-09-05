@@ -33,29 +33,50 @@ $(document).ready(function () {
         }
     }
 
+    function toggleBurger() {
+        $('.header-prev').toggleClass('burger__header');
+        $('.header').toggleClass('burger__header');
+        $('.menu').toggleClass('burger-active');
+    }
+
+    if ($(window).width() > 450) {
+        $('.menu').removeClass('burger-menu');
+    } else if ($(window).width() < 450) {
+        $('.menu').addClass('burger-menu');
+    }
+
+    $('#burger-box').on('click', function (e) {
+        toggleBurger();
+    })
+
     $('.slider__rect').on('click', function (e) {
         slide(e, document.querySelectorAll('.slider__rect'));
     })
 
     $('#home').on('click', function (e) {
         toElement(e);
+        toggleBurger();
     });
     $('#about').on('click', function (e) {
         TopScr = $('.section-first').css('height') + 'px';
         toElement(e, TopScr);
+        toggleBurger();
     });
     $('#service').on('click', function (e) {
         TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))) + 'px';
         toElement(e, TopScr);
+        toggleBurger();
     });
     $('#portfolio').on('click', function (e) {
         TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))
             + parseInt($('.service__box').css('height'))) + parseInt($('.section-fourth').css('height')) + 'px';
         toElement(e, TopScr);
+        toggleBurger();
     });
     $('#contact').on('click', function (e) {
         TopScr = (parseInt($('body').css('height'))) - (parseInt($('.section-seventh').css('height')) + parseInt($('.footer').css('height'))) + 'px';
         toElement(e, TopScr);
+        toggleBurger();
     });
 
 
@@ -64,10 +85,12 @@ $(document).ready(function () {
 $(window).scroll(function () {
     var top = $(document).scrollTop();
     if (top < 100) {
-        $(".header").css({ top: '0', position: 'relative', backgroundColor: '', paddingTop: '', alignItems: '', border: '', borderRadius: '', width: '' });
+        if (($('.menu').hasClass('burger-active')) == false) {
+            $(".header").css({ top: '0', position: 'relative', backgroundColor: '', paddingTop: '', alignItems: '', border: '', borderRadius: '', width: '' });
+        }
         $('.logo').css({ flexDirection: 'column', marginLeft: '', });
     }
-    else {
+    else if (top > 100) {
         $(".header").css({
             top: '10px',
             position: 'fixed',
