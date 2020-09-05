@@ -736,7 +736,7 @@ section {
 
 .burger-active a.active::after {
     opacity: 1;
-    width: 50vh;
+    width: 50vw;
     border-color: #fff;
 }
 
@@ -786,10 +786,10 @@ section {
 
 @media (max-width: 940px) {
     .wrap {
-        width: 100vh;
+        width: 100vw;
     }
     .background {
-        width: 100vh;
+        width: 100vw;
     }
 }
 
