@@ -43,13 +43,18 @@ $(document).ready(function () {
 
     let burgerOn = false;
 
-    if ($(window).width() > 450) {
-        $('.menu').removeClass('burger-menu');
-        burgerOn = false;
-    } else if ($(window).width() < 450) {
-        $('.menu').addClass('burger-menu');
-        burgerOn = true;
-    }
+    $(window).resize(function () {
+        if ($(window).width() > $(window).height()) {
+            $('section').addClass('ipad-section');
+        }
+        if ($(window).width() > 450) {
+            $('.menu').removeClass('burger-menu');
+            burgerOn = false;
+        } else if ($(window).width() < 450) {
+            $('.menu').addClass('burger-menu');
+            burgerOn = true;
+        }
+    })
 
     $('#burger-box').on('click', function (e) {
         if (burgerOn) {

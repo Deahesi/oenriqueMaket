@@ -757,6 +757,10 @@ section {
     height: 100%;
 }
 
+.ipad-section {
+    width: 100vw;
+}
+
 .burger-active {
     overflow: unset;
     height: 100vh;
