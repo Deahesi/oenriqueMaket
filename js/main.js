@@ -39,14 +39,20 @@ $(document).ready(function () {
         $('.menu').toggleClass('burger-active');
     }
 
+    let burgerOn = false;
+
     if ($(window).width() > 450) {
         $('.menu').removeClass('burger-menu');
+        burgerOn = false;
     } else if ($(window).width() < 450) {
         $('.menu').addClass('burger-menu');
+        burgerOn = true;
     }
 
     $('#burger-box').on('click', function (e) {
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     })
 
     $('.slider__rect').on('click', function (e) {
@@ -55,28 +61,38 @@ $(document).ready(function () {
 
     $('#home').on('click', function (e) {
         toElement(e);
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     });
     $('#about').on('click', function (e) {
         TopScr = $('.section-first').css('height') + 'px';
         toElement(e, TopScr);
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     });
     $('#service').on('click', function (e) {
         TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))) + 'px';
         toElement(e, TopScr);
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     });
     $('#portfolio').on('click', function (e) {
         TopScr = (parseInt($('.section-first').css('height')) + parseInt($('.about__box').css('height'))
             + parseInt($('.service__box').css('height'))) + parseInt($('.section-fourth').css('height')) + 'px';
         toElement(e, TopScr);
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     });
     $('#contact').on('click', function (e) {
         TopScr = (parseInt($('body').css('height'))) - (parseInt($('.section-seventh').css('height')) + parseInt($('.footer').css('height'))) + 'px';
         toElement(e, TopScr);
-        toggleBurger();
+        if (burgerOn) {
+            toggleBurger();
+        }
     });
 
 
