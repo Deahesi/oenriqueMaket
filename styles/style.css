@@ -774,6 +774,7 @@ section {
     -o-transition: .2s;
 }
 
+
 @media (max-width: 1100px) {
     .first-img {
         display: none;
@@ -800,12 +801,9 @@ section {
     .background {
         width: 100vh;
     }
-}
 
-@media (max-width: 450px) {
-    .header {
-        overflow: hidden;
-        min-width: 400px;
+    .service__box {
+        margin-left: 0;
     }
     .burger {
         display: flex;
@@ -813,5 +811,22 @@ section {
         align-items: center;
         left: 50vh;
     }
+    .header {
+        overflow: hidden;
+        min-width: 400px;
+    }
+    .section-second {
+        margin-top: 250px;
+    }
+    .section-first__content {
+        margin-top: 0;
+    }
+    .first-slogan {
+        margin-top: 0;
+    }
+    .section-sixth {
+        background-color: #d5d5d5;
+    }
 }
+
  
