@@ -37,6 +37,8 @@ $(document).ready(function () {
         $('.header-prev').toggleClass('burger__header');
         $('.header').toggleClass('burger__header');
         $('.menu').toggleClass('burger-active');
+        $('.wrap').toggleClass('burger-wrap');
+        $('html').toggleClass('burger-wrap');
     }
 
     let burgerOn = false;

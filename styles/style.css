@@ -736,7 +736,7 @@ section {
 
 .burger-active a.active::after {
     opacity: 1;
-    width: 50vw;
+    width: 50vh;
     border-color: #fff;
 }
 
@@ -750,6 +750,11 @@ section {
 
 .burger__header {
     max-height: 100%;
+}
+
+.burger-wrap {
+    overflow: hidden; 
+    height: 100%;
 }
 
 .burger-active {
@@ -786,7 +791,7 @@ section {
 
 @media (max-width: 940px) {
     .wrap {
-        width: 100vw;
+        width: 100vh;
     }
     .background {
         width: 100vw;
