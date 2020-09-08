@@ -748,7 +748,9 @@ section {
     color: #fff;
 }
 
+
 .burger__header {
+    position: absolute;
     max-height: 100%;
 }
 
@@ -762,6 +764,7 @@ section {
 }
 
 .burger-active {
+    position: absolute;
     overflow: unset;
     height: 100vh;
     flex-direction: column;
@@ -795,6 +798,19 @@ section {
 }
 
 @media (max-width: 940px) {
+    .seventh-container {    
+        background-color: #d5d5d5;
+    }
+    .background img {
+        display: none;
+    }
+    .background div {
+        background-color: #d5d5d5;
+    }
+    .review-box {
+        border-left: none;
+        border-right: none;
+    }
     .wrap {
         width: 100vh;
     }
@@ -814,9 +830,6 @@ section {
     .header {
         overflow: hidden;
         min-width: 400px;
-    }
-    .section-second {
-        margin-top: 250px;
     }
     .section-first__content {
         margin-top: 0;
