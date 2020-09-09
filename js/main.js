@@ -39,6 +39,7 @@ $(document).ready(function () {
         $('.menu').toggleClass('burger-active');
         $('.wrap').toggleClass('burger-wrap');
         $('html').toggleClass('burger-wrap');
+        $('.burger-line').toggleClass('active__burger');
     }
 
     let burgerOn = false;
