@@ -342,6 +342,7 @@ section {
 .portfolio-list__line {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .portfolio-item {
@@ -356,10 +357,6 @@ section {
 
 .portfolio-item:hover {
     box-shadow: 0 0 20px #dadada;
-}
-
-.no-margin {
-    margin-left: 0px;
 }
 
 .load-more {
